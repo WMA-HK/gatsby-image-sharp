@@ -53,7 +53,7 @@ export const processFile = async (
 
         // Speeding up the build pipeline, which it should probably be doing anyways....
         //   if a processed file already exists, don't process it again maybe?
-        if (fs.statSync(outputFile)) {
+        if (fs.statSync(outputPath)) {
           // return early
           return transform;
         }
