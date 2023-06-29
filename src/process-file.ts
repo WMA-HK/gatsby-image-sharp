@@ -53,9 +53,9 @@ export const processFile = async (
 
         // Speeding up the build pipeline, which it should probably be doing anyways....
         //   if a processed file already exists, don't process it again maybe?
-        if (fs.statSync(outputPath)) {
+        if (!fs.existsSync(outputPath)) {
           // return early
-          return transform;
+          return transform
         }
             
         await fs.ensureDir(path.dirname(outputPath))
